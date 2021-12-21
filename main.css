@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;400&family=Roboto:wght@100;300;400&display=swap');
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+.body {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+
+}
+
+.main_container {
+  width: 70%;
+  font-size: 1.7rem;
+}
+
+.nav_bar {
+  height: 8rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid black;
+}
+
+.button {
+  padding: 1rem 2.5rem;
+  border: none;
+  margin: 0.5rem;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+
+.add_button {
+  background-color: green;
+}
+
+.add_button:hover {
+  background-color: rgb(72, 173, 72);
+}
+
+.delete_button {
+  background-color: tomato;
+}
+
+.delete_button:hover {
+  background-color: rgb(230, 143, 109)
+
+}
+
+.buttons {
+  display: flex;
+  position: absolute;
+  right: 12px;
+  margin: 12px;
+
+}
+
+#productsList {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 5em 0;
+}
+
+#product_card {
+  padding: 12px;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+}
+
+footer {
+  max-width: 100%;
+  min-width: 70%;
+  border-top: 1px solid black;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
