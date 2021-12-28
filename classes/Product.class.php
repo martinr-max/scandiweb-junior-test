@@ -56,7 +56,6 @@ class DVD  implements ProductInterface
     return $product;
   }
 
-
   public function getName() 
   {
     return $this->name;

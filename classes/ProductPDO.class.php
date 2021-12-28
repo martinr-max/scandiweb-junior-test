@@ -109,34 +109,56 @@ class ProductPDO {
     }
   } 
 
-  public function getProducts()
+  public function getBooks() 
   {
     try {
-        $sql = "SELECT P.sku, P.name, P.price, P.category, B.weight
-          FROM Product P
-          INNER JOIN Book B ON P.sku = B.sku;
-          SELECT P.sku, P.name, P.price, P.category, D.size
-          FROM Product P
-          INNER JOIN Dvd D ON P.sku = D.sku;
-          SELECT P.sku, P.name, P.price,
-          P.category, F.length, F.height, F.width
-          FROM Product P
-          INNER JOIN Furniture F ON P.sku = F.sku;  
-          ";
-
-         $stmt = $this->connection->prepare($sql);
-         $stmt->execute();
-         $books = $stmt->fetchAll(PDO::FETCH_FUNC, "Book::buildFromPdo");
-         $stmt->nextRowset();
-         $dvds = $stmt->fetchAll(PDO::FETCH_FUNC, "DVD::buildFromPdo");
-         $stmt->nextRowset();
-         $furniture = $stmt->fetchAll(PDO::FETCH_FUNC, "Furniture::buildFromPdo");
-         return array_merge($books, $dvds, $furniture);
-    }
-    catch (\Exception $e) {
+      $sql = "SELECT P.sku, P.name, P.price, P.category, B.weight
+      FROM Product P
+      INNER JOIN Book B ON P.sku = B.sku;";
+      $stmt = $this->connection->prepare($sql);
+      $stmt->execute();
+      $books = $stmt->fetchAll(PDO::FETCH_FUNC, "Book::buildFromPdo");
+      return $books;
+    } catch (\Exception $e) {
       print "Error!: " . $e->getMessage() . "<br/>";
       die();
     }
+   
+  }
+  
+  public function getDVDs() 
+  {
+    try {
+      $sql = "SELECT P.sku, P.name, P.price, P.category, D.size
+      FROM Product P
+      INNER JOIN Dvd D ON P.sku = D.sku;";
+      $stmt = $this->connection->prepare($sql);
+      $stmt->execute();
+      $dvds = $stmt->fetchAll(PDO::FETCH_FUNC, "DVD::buildFromPdo");
+      return $dvds;
+    } catch (\Exception $e) {
+      print "Error!: " . $e->getMessage() . "<br/>";
+      die();
+    }
+   
+  }
+
+  public function getFurniture() 
+  {
+    try {
+      $sql = "SELECT P.sku, P.name, P.price,
+      P.category, F.length, F.height, F.width
+      FROM Product P
+      INNER JOIN Furniture F ON P.sku = F.sku;";
+      $stmt = $this->connection->prepare($sql);
+      $stmt->execute();
+      $furniture = $stmt->fetchAll(PDO::FETCH_FUNC, "Furniture::buildFromPdo");
+      return $furniture;
+    } catch (\Exception $e) {
+      print "Error!: " . $e->getMessage() . "<br/>";
+      die();
+    }
+    
   }
 
   public function deleteProduct()

@@ -14,7 +14,10 @@ $scriptUrl = 'index.js';
 
 //Header ends
 $productsFetch = new ProductPDO();
-$products = $productsFetch->getProducts();
+//$products = $productsFetch->getProducts();
+$books = $productsFetch->getBooks();
+$dvds = $productsFetch->getDVDs();
+$furniture = $productsFetch->getFurniture();
 
 if(isset($_POST['delete']) && isset($_POST['checkbox'])) {
   $productsFetch->deleteProduct();
