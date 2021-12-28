@@ -14,7 +14,6 @@ $scriptUrl = 'index.js';
 
 //Header ends
 $productsFetch = new ProductPDO();
-//$products = $productsFetch->getProducts();
 $books = $productsFetch->getBooks();
 $dvds = $productsFetch->getDVDs();
 $furniture = $productsFetch->getFurniture();
